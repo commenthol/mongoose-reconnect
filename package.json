@@ -1,0 +1,45 @@
+{
+  "name": "mongoose-reconnect",
+  "description": "Reconnect mongoose connections",
+  "version": "0.0.1",
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "dependencies": {
+    "mergee": "^0.1.0",
+    "mongoose": "^4.0.1"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "mocha": "latest",
+    "tcp-proxy": "0.0.1"
+  },
+  "scripts": {
+    "test": "mocha test/*.mocha.js",
+    "cover": "istanbul cover _mocha --report lcov --report text -- -R dot --check-leaks test/*.mocha.js",
+    "lint": "jshint --show-non-errors *.js */*.js",
+    "doc": "jsdox -o doc index.js lib/*.js",
+    "readme": "markedpp --githubid -i README.md -o README.md",
+    "clean": "rm -rf doc coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/commenthol/mongoose-reconnect"
+  },
+  "keywords": [
+    "mongoose",
+    "reconnect"
+  ],
+  "author": "commenthol <commenthol@gmail.com>",
+  "maintainers": "commenthol <commenthol@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/commenthol/mongoose-reconnect/issues"
+  },
+  "homepage": "https://github.com/commenthol/mongoose-reconnect"
+}

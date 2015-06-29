@@ -5,48 +5,47 @@
  * @copyright 2015 commenthol
  */
 
-'use strict';
+'use strict'
 
-var child = require('child_process');
+var path = require('path')
+var child = require('child_process')
+var debug = require('debug')('startStop')
 
-function startStop(bind, remote) {
-	var self = {};
+function startStop (bind, remote) {
+  var self = {}
 
-	self.create = function(cb){
-		self.close();
-		if (!self.started) {
-			self._prx = child.fork(__dirname + '/../tcpproxy.js', [ bind, remote ]);
-			self.started = true;
-			setTimeout(function(){
-				//~ console.log('proxy create', Date.now())
-				cb && cb();
-			}, 250);
-		}
-		else {
-			cb(new Error('already connectoed'));
-		}
-	};
+  self.create = function (cb) {
+    self.close()
+    if (!self.started) {
+      self._prx = child.fork(path.resolve(__dirname, '../tcpproxy.js'), [ bind, remote ])
+      self.started = true
+      setTimeout(function () {
+        debug('proxy create', Date.now())
+        cb && cb()
+      }, 250)
+    } else {
+      cb(new Error('already connectoed'))
+    }
+  }
 
-	self.close = function(){
-		if (self.started) {
-			self._prx.kill();
-			self._prx = null;
-			self.started = false;
-			//~ console.log('proxy close', Date.now())
-		}
-	};
+  self.close = function () {
+    if (self.started) {
+      self._prx.kill()
+      self._prx = null
+      self.started = false
+      debug('proxy close', Date.now())
+    }
+  }
 
-	return self;
+  return self
 };
 
-module.exports = startStop;
+module.exports = startStop
 
 if (require.main === module) {
-	var st = startStop(':3002',':4000')
-	st.create();
-	setTimeout(function(){
-		st.close();
-	}, 3000);
+  var st = startStop(':3002', ':4000')
+  st.create()
+  setTimeout(function () {
+    st.close()
+  }, 3000)
 }
-
-

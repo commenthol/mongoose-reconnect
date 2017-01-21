@@ -2,7 +2,7 @@
   "name": "mongoose-reconnect",
   "description": "Reconnect mongoose connections",
   "version": "1.0.0",
-  "main": "lib/reconnect.js",
+  "main": "lib",
   "engines": {
     "node": ">=0.10.0"
   },
@@ -18,15 +18,14 @@
     "asyncc": "^1.0.1",
     "core-js": "^2.4.1",
     "mocha": "*",
-    "rimraf": "*",
-    "tcp-proxy": "0.0.1"
+    "rimraf": "*"
   },
   "scripts": {
     "__prepublish": "npm run clean && npm run lint && npm test && npm version",
     "test": "mocha --check-leaks test/*.js",
     "cover": "istanbul cover _mocha --report lcov --report text -- -R dot --check-leaks test/*.js",
     "lint": "eslint '*.js' '**/*.js'",
-    "doc": "jsdox -o doc index.js lib/*.js",
+    "doc": "jsdox -o doc lib/index.js",
     "readme": "markedpp --githubid -i README.md -o README.md",
     "clean": "rimraf doc coverage"
   },

@@ -3,6 +3,7 @@
 /doc
 /tmp
 /test
+/scripts
 .*
 *.log
 *.tgz

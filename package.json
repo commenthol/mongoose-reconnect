@@ -11,18 +11,18 @@
     "test": "test"
   },
   "dependencies": {
-    "debug": "^2.6.0",
-    "mongoose": "^4.0.1"
+    "debug": "^3.1.0",
+    "mongoose": "^4.13.11"
   },
   "devDependencies": {
-    "asyncc": "^1.0.1",
+    "asyncc": "^2.0.1",
     "core-js": "^2.4.1",
     "mocha": "*",
     "rimraf": "*"
   },
   "scripts": {
     "__prepublish": "npm run clean && npm run lint && npm test && npm version",
-    "test": "mocha --check-leaks test/*.js",
+    "test": "mocha",
     "cover": "istanbul cover _mocha --report lcov --report text -- -R dot --check-leaks test/*.js",
     "lint": "eslint '*.js' '**/*.js'",
     "doc": "jsdox -o doc lib/index.js",

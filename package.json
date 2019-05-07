@@ -11,14 +11,13 @@
     "test": "test"
   },
   "dependencies": {
-    "debug": "^3.1.0",
-    "mongoose": "^4.13.11"
+    "debug": "^4.1.1",
+    "mongoose": "^4.13.18"
   },
   "devDependencies": {
-    "asyncc": "^2.0.1",
-    "core-js": "^2.4.1",
-    "mocha": "*",
-    "rimraf": "*"
+    "asyncc": "^2.0.3",
+    "mocha": "^6.1.4",
+    "rimraf": "^2.6.3"
   },
   "scripts": {
     "__prepublish": "npm run clean && npm run lint && npm test && npm version",

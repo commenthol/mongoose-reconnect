@@ -9,11 +9,6 @@
 
 /* global describe, it */
 
-if (typeof Object.assign !== 'function') {
-  // polyfill for version <= 0.12.x
-  require('core-js/fn/object/assign')
-}
-
 var assert = require('assert')
 var async = require('asyncc')
 
